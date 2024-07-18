@@ -2,7 +2,6 @@ param (
  [string]$ModuleName,
  [string]$Source = "",
  [string]$Output = "",
- [string]$FileName,
  [string]$Debug = 'false'
 )
 try
@@ -20,8 +19,6 @@ try
  $Destination = Join-Path $outputPath $ModuleName
  $modulePath = Join-Path $Destination "$ModuleName.psm1"
  $ManifestPath = Join-Path $Destination "$ModuleName.psd1"
- $ReleaseNotesPath = Join-Path -Path $env:GITHUB_WORKSPACE -ChildPath $FileName
- $Body = ""
  $ApiKey = $env:ApiKey
 
  if ($Debug)
@@ -33,10 +30,6 @@ try
   Write-Host "modulePath   : $modulePath"
   Write-Host "ManifestPath : $ManifestPath"
   Write-Host "Destination  : $Destination"
- }
-
- if (Test-Path -Path $ReleaseNotesPath) {
-  $Body = Get-Content -Path $ReleaseNotesPath -Raw
  }
 
  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

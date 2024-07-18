@@ -21,10 +21,6 @@ inputs:
     type: string
     required: false
     default: ''
-  filename:
-    description: 'The file where the release notes can be found, relative to the root of the repo'
-    required: true
-    type: string
   ApiKey:
     description: 'PowerShell Gallery API Key'
     required: true
@@ -42,4 +38,4 @@ runs:
         ApiKey: ${{ inputs.ApiKey }}
       shell: pwsh
       run: |
-        & $env:GITHUB_ACTION_PATH\\publishpowershellmodule.ps1 -ModuleName '${{ inputs.ModuleName }}' -Source '${{ inputs.Source }}' -Output '${{ inputs.Output }}' -FileName '${{ inputs.filename }}' -Debug '${{ inputs.Debug }}'
+        & $env:GITHUB_ACTION_PATH\\publishpowershellmodule.ps1 -ModuleName '${{ inputs.ModuleName }}' -Source '${{ inputs.Source }}' -Output '${{ inputs.Output }}' -Debug '${{ inputs.Debug }}'
