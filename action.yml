@@ -25,8 +25,8 @@ inputs:
     description: 'The file where the release notes can be found, relative to the root of the repo'
     required: true
     type: string
-  ApiToken:
-    description: 'PowerShell Gallery API Token'
+  ApiKey:
+    description: 'PowerShell Gallery API Key'
     required: true
   Debug:
     description: 'Enable debug mode'
@@ -39,7 +39,7 @@ runs:
   steps:
     - name: Create PowerShell Module
       env:
-        ApiToken: ${{ inputs.ApiToken }}
+        ApiKey: ${{ inputs.ApiKey }}
       shell: pwsh
       run: |
         & $env:GITHUB_ACTION_PATH\\publishpowershellmodule.ps1 -ModuleName '${{ inputs.ModuleName }}' -Source '${{ inputs.Source }}' -Output '${{ inputs.Output }}' -FileName '${{ inputs.filename }}' -Debug '${{ inputs.Debug }}'
