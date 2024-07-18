@@ -22,9 +22,6 @@ try
  $ManifestPath = Join-Path $Destination "$ModuleName.psd1"
  $ReleaseNotesPath = Join-Path -Path $env:GITHUB_WORKSPACE -ChildPath $FileName
  $Body = ""
- $LicenseUri = "https://github.com/$($env:GITHUB_REPOSITORY)/LICENSE"
- $ProjectUri = "https://github.com/orgs/mod-posh/projects/5"
- $Repository = "https://github.com/$($env:GITHUB_REPOSITORY)"
  $ApiKey = $env:ApiKey
 
  if ($Debug)
@@ -44,13 +41,8 @@ try
 
  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
  $Parameters = @{
-  LicenseUri   = $LicenseUri
-  Name         = $ModuleName
   NuGetApiKey  = $ApiKey
   Path         = $Destination
-  ProjectUri   = $ProjectUri
-  ReleaseNotes = $Body
-  Repository   = $Repository
  }
  Publish-Module @Parameters;
 }
