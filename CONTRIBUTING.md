@@ -1,8 +1,8 @@
-# Contributing to [Your Project Name]
+# Contributing to PublishPowerShellModule
 
 ## Introduction
 
-Thank you for your interest in contributing to [Your Project Name]! We value the contributions from the community and are glad that you're interested in helping improve this project. This document outlines the guidelines for contributing, which help maintain the project's quality and keep the process efficient and respectful.
+Thank you for your interest in contributing to PublishPowerShellModule! We value the contributions from the community and are glad that you're interested in helping improve this project. This document outlines the guidelines for contributing, which help maintain the project's quality and keep the process efficient and respectful.
 
 ## How to Contribute
 
@@ -32,10 +32,10 @@ There are many ways to contribute to this project:
 
 ## Community Guidelines
 
-We expect all contributors to be respectful and constructive in their communication. Harassment, trolling, and abuse are strictly prohibited. 
+We expect all contributors to be respectful and constructive in their communication. Harassment, trolling, and abuse are strictly prohibited.
 
 ## Feedback and Questions
 
 If you have any questions or feedback about contributing, open an issue for discussion.
 
-Thank you for your contributions, and we look forward to your participation in making [Your Project Name] better!
+Thank you for your contributions, and we look forward to your participation in making PublishPowerShellModule better!

@@ -1,0 +1,45 @@
+name: 'Publish PowerShell Module'
+description: 'A GitHub Action to Publish a PowerShell module.'
+author: 'Jeff Patton'
+
+branding:
+  icon: 'activity'
+  color: 'blue'
+
+inputs:
+  ModuleName:
+    description: 'The name of the PowerShell module'
+    type: string
+    required: true
+  Source:
+    description: 'The source directory containing the module (relative to the workspace)'
+    type: string
+    required: false
+    default: ''
+  Output:
+    description: 'The output directory for storing the module (relative to the workspace)'
+    type: string
+    required: false
+    default: ''
+  filename:
+    description: 'The file where the release notes can be found, relative to the root of the repo'
+    required: true
+    type: string
+  ApiToken:
+    description: 'PowerShell Gallery API Token'
+    required: true
+  Debug:
+    description: 'Enable debug mode'
+    type: string
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Create PowerShell Module
+      env:
+        ApiToken: ${{ inputs.ApiToken }}
+      shell: pwsh
+      run: |
+        & $env:GITHUB_ACTION_PATH\\publishpowershellmodule.ps1 -ModuleName '${{ inputs.ModuleName }}' -Source '${{ inputs.Source }}' -Output '${{ inputs.Output }}' -FileName '${{ inputs.filename }}' -Debug '${{ inputs.Debug }}'
